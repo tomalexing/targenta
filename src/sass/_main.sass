@@ -1,0 +1,141 @@
+// Normally mainpage styles
+// body
+// 	+s(coderiver)
+
+
+
+.header
+	position: fixed
+	top: 0
+	left: 0
+	right: 0
+	height: 70px
+	width: 100%
+	background: white
+	+tr(background .5s)
+	.is-menu-open &
+		background: #1A1A1A
+	.header__inner
+		@extend %in
+		height: 100%
+	.header__row
+		+vertical
+		height: 100%
+		text-align: right
+		font-size: 1.1em
+	.header__logo
+		width: 205px
+		float: left
+		line-height: 0
+		margin-top: 18px
+		img
+			width: 35px
+		a
+			text-decoration: none
+		.icon-logo2
+			font-size: 34.5px
+			color: #231F20
+			+tr(color .5s)
+			.is-menu-open &
+				color: white
+	.heeder__nav
+		display: inline-block
+		vertical-align: middle
+		.nav
+			margin-right: -135px
+			+tr(all .5s)
+			.is-menu-open &
+				margin-right: 48px
+			.nav__item
+				display: inline-block
+				margin-right: 15px
+				a
+					@extend %btn
+					color: $textMemu
+					border: 1px solid transparent
+					+tr(color .5s)
+					&:hover
+						border: 1px solid $red
+						color: $red
+					.is-menu-open &
+						color: white
+					
+	button
+		background: transparent
+		margin-right: 0
+		visibility: hidden
+		transition:  transform .5s, margin .5s,visibility .5s
+		+translate(200%, 0)
+		z-index: -1
+
+		.is-menu-open &
+			visibility: visible
+			margin-right: 55px
+			display: inline-block
+			+translate(0, 0)
+			z-index: 10
+
+
+
+		a
+			@extend %btn
+			color: white
+			border: 1px solid $red
+			background: $red
+
+
+
+	.lang
+		display: inline-block
+		vertical-align: middle
+		font-size: 10px
+		position: relative
+		top: -5px
+		color: $lang
+		span
+			+tr(color .5s)
+			.is-menu-open &
+				color: white
+
+		sub
+			+arr(10,5,$lang,b)
+			position: absolute
+			left: 4px
+			top: 120%
+			+tr(border-color .5s)
+			.is-menu-open &
+				border-color: white transparent transparent transparent
+
+.pagination
+	display: block
+	margin-top: 28px+70px
+	.pagination__inner
+		@extend %in
+		.pagination__link
+			display: inline-block
+			color: $pagination__link
+			a
+				color: $pagination__link
+		.pagination__link:last-child
+			span
+				display: none
+
+.personality
+	padding-top: 30px
+	.personality__inner
+		@extend %in2
+		margin-top: 70px
+		.description__out
+		.photo
+			img
+				width: 100%
+				height: auto
+		.personality__name,.personality__position
+			margin-bottom: 30px
+		.personality__speach
+			margin-bottom: 36px
+		.personality__position
+			color: $grey
+
+
+

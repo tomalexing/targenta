@@ -1,0 +1,116 @@
+// # SHORT HOWTO
+// ## Sprites
+//     .whatever
+//          +sized-sprite($icons, coderiver) //or
+// 			+s(codedby) //gets default value for spritemap as $icons
+// ### animation example
+//     +include keyframes(rotate)
+//        from
+//           +rotate(0)
+//        to
+//           +rotate(360)
+// ## animation usage
+//     body:hover
+// 	    +animation(rotate 200s linear infinite)
+// ## animations easing, see easings.net for full list and examples, tnx @ai
+//     transition: all 1.2s ceaser($ease-in)
+// ## gradient example
+//     +background-image(linear-gradient(#232323, #5c5c5c));
+//     +g(#232323, #5c5c5c);
+//	   horizontal
+//     +gh(#232323, #5c5c5c);
+// ## making bw-images
+//     img
+//			@extend %gray
+// ## predefined media-queries: https://github.com/paranoida/sass-mediaqueries
+//     +min-screen(320)
+//			display: none
+// +max-screen(1000), +iphone5, +iphone4, +ipad-retina, +ipad, +hdpi - also available
+//
+// ## use cycles
+//     @for $i from 1 through 3
+//       .item-#{$i}
+//			width: 2em * $i;
+//     @each $s in a,b,c
+// 	    	#{$s}
+//				display: none
+// ## fonts
+// Save fonts to /css/fonts, after that write (eot, woff, ttf):
+// +font(book, cytiapro-black-webfont)
+// =book
+// 	font-family: "book", Arial, sans-serif
+// insert pics into css
+// div
+// 	+pic("blabla.png")
+// span
+// 	+png(blabla)
+// p
+// 	+jpg(bla)
+//fonts
+=scroll
+	//overflow: auto
+
+	&::-webkit-scrollbar
+		width: 8px
+		background: transparent
+	&::-webkit-scrollbar-track
+		background: transparent
+	&::-webkit-scrollbar-thumb
+		background: rgba(#1A1A1A,1)
+	&::-webkit-scrollbar-track-piece
+
+
++font(PTSans, PTSansRegular)
+=f
+	font-family: "PTSans", Arial, sans-serif
+
++font(PTSansBold, PTSansBold)
+=fb
+	font-family: "PTSansBold", Arial, sans-serif
+//variables
+$lang: #808080
+$textMemu: #231F20
+$red: #D71B58
+$pagination__link: #096EAF
+$grey: #4D4D4D
+body
+	+f
+	font-size: 13px
+	line-height: 1.4
+	font-smoothing: antialiased
+	background-color: #F8F5F4
+	+scroll
+*
+	+box
+
+// common blocks
+.out
+	height: 100%
+	max-width: 100%
+	position: relative
+	//overflow-y: auto
+
+%in
+	max-width: 1200px
+	margin: 0 auto
+	padding: 0 28px
+
+%in2
+	max-width: 803px
+	width: 100%
+	padding: 0 28px
+	margin: 0 auto
+
+%btn
+	border-radius: 5px
+	font-size: 14px
+	padding: 13px 17px
+	text-decoration: none
+
+[class$="__title"]
+	//display: inline-block
+	width: 100%
+	h2
+		+fb
+		font-size: 24px
+		text-align: center
