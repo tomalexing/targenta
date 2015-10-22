@@ -139,7 +139,8 @@ gulp.task('font', function(){
     .pipe(iconfont({
       fontName: fontname,
       appendUnicode: true,
-      formats: ['ttf', 'eot', 'woff', 'woff2'],
+      spawnWoff2: true,
+      formats: ['ttf', 'eot', 'woff'],
        timestamp: runTimestamp,
       normalize: true,
       fontHeight: 1001,
