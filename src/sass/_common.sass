@@ -59,6 +59,18 @@
 		background: rgba(#1A1A1A,1)
 	&::-webkit-scrollbar-track-piece
 
+=scroll-course
+	//overflow: auto
+
+	&::-webkit-scrollbar
+		width: 3px
+		background: transparent
+	&::-webkit-scrollbar-track
+		background: transparent
+	&::-webkit-scrollbar-thumb
+		background: rgba($grey,1)
+	&::-webkit-scrollbar-track-piece
+
 
 +font(PTSans, PTSansRegular)
 =f
@@ -73,11 +85,13 @@ $textMemu: #231F20
 $red: #D71B58
 $pagination__link: #096EAF
 $grey: #4D4D4D
+$blue: #096EAF
+$grey-light: #ACACAC
 body
 	+f
 	font-size: 13px
 	line-height: 1.4
-	font-smoothing: antialiased
+	-webkit-font-smoothing: antialiased
 	background-color: #F8F5F4
 	+scroll
 *
@@ -114,3 +128,49 @@ body
 		+fb
 		font-size: 24px
 		text-align: center
+
+@keyframes ripples
+	0%
+		opacity: 0
+
+	25%
+		opacity: 1
+
+	100%
+		width: 200%
+		padding-bottom: 200%
+		opacity: 0
+
+
+@keyframes inputHighlighter 
+	from 
+		background: #4a89dc
+	to
+		width: 0
+		background: transparent
+%ripples
+	.ripples
+		position: absolute
+		top: 0
+		left: 0
+		width: 100%
+		height: 100%
+		overflow: hidden
+		background: transparent
+
+
+	/* Ripples circle */
+
+	.ripplesCircle
+		position: absolute
+		top: 50%
+		left: 50%
+		transform: translate(-50%, -50%)
+		opacity: 0
+		width: 0
+		height: 0
+		border-radius: 50%
+		background: rgba(255, 255, 255, 0.25)
+
+	.ripples.is-active .ripplesCircle
+		animation: ripples .4s ease-in

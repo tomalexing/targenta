@@ -7,13 +7,13 @@
 		<div class="contacts__info l-col8">
 			<div class="contacts__tel">+380 67 050 30 01</div>
 			<div class="contacts__tel">+380 44 080 30 01</div>
-			<div class="contacts__mail">info@targenta.com.ua</div>
+			<div class="contacts__mail"> <a href="mailto:info@targenta.com.ua">info@targenta.com.ua</a></div>
 			<div class="contacts__social">
 				<a class="contacts__fb" href="#">
 					<i class="icon-fb"></i>
 				</a>
 				<a class="contacts__li" href="#">
-					<i class="icon-in"></i>
+					<i class="icon-li"></i>
 				</a>
 				<a class="contacts__in" href="#">
 					<i class="icon-in"></i>
@@ -24,17 +24,35 @@
 		<div class="contact__form l-col9">
 			<div class="vertical-line"></div>
 			 <form role="form" id="formOrder" autocomplete="on">
-				<div class="contact__input"><input type="text" class="form-control requiredField name" placeholder="Имя*" value=""></div>
-				<div class="contact__input"><input type="text" class="form-control requiredField email" placeholder="E-mail*" value=""></div>
-				<div class="contact__input"><input type="text" class="form-control requiredField phone" placeholder="Телефон*" value=""></div>
-				<div class="contact__input"><input type="text" class="form-control message" placeholder="Сообщение" value=""></div>
-				<div class="start__submit "><input  type="submit" value="Закажите консультацию" /></div>
+				<div class="contact__input">
+					<input type="text" class="form-control requiredField name" value="">
+					<span class="highlight"></span><span class="bar"></span>
+					<label>Имя*</label>
+				</div>
+				<div class="contact__input">
+					<input type="text" class="form-control requiredField email" value="">
+					<span class="highlight"></span><span class="bar"></span>
+					<label>E-mail*</label>
+				</div>
+				<div class="contact__input">
+					<input type="text" class="form-control requiredField phone" value="">
+					<span class="highlight"></span><span class="bar"></span>
+					<label>Телефон*</label>
+				</div>
+				<div class="contact__input">
+					<input type="text" class="form-control message" value="">
+					<span class="highlight"></span><span class="bar"></span>
+					<label>Сообщение</label>
+				</div>
+				<button type="button" class="start__submit">Задать вопрос
+					<div class="ripples buttonRipples"><span class="ripplesCircle"></span></div>
+				</button>
 			</form>
 		</div>
 	</div>
 	<!-- begin footer  -->
 	<div class="footer l">
-		<div class="footer__logo l-col1"><i class="icon-flogo"></i></div>
+		<div class="footer__logo l-col1"><a href="/"><i class="icon-flogo"></i></a></div>
 		<div class="copyright l-col2">
 			<p>© Все права защищены.</p>
 			<p>Powered by <a href="http://www.iondigi.com">ION Digital</a></p>

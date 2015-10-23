@@ -13,6 +13,7 @@
 	width: 100%
 	background: white
 	+tr(background .5s)
+	z-index: 100
 	.is-menu-open &
 		background: #1A1A1A
 	.header__inner
@@ -107,10 +108,10 @@
 				border-color: white transparent transparent transparent
 
 .pagination
-	display: block
 	margin-top: 28px+70px
+	@extend %in
 	.pagination__inner
-		@extend %in
+
 		.pagination__link
 			display: inline-block
 			color: $pagination__link
@@ -125,6 +126,7 @@
 	.personality__inner
 		@extend %in2
 		margin-top: 70px
+		margin-bottom: 70px
 		.description__out
 		.photo
 			img
@@ -136,6 +138,375 @@
 			margin-bottom: 36px
 		.personality__position
 			color: $grey
+		.personality__social
+			.personality__fb,
+			.personality__li
+				text-decoration: none
+				color: $grey
+				font-size: 22px
+				+tr(color .5s)
+				&:hover
+					color: $red
+	.line
+		max-width: 747px
+		margin: 0 auto
+		border-bottom: 3px dashed $grey
+
+.course
+	padding-top: 48px
+	padding-bottom: 80px
+	@extend %in
+	.course__wrap-backgradient
+		position: relative
+		z-index: 1
+		//height: 245px
+		margin-top: 48px
+		&:before
+			content: ""
+			+coverdiv
+			z-index: -1
+			background-color: #ACACAC
+			background-image: repeating-linear-gradient(45deg, white 0px, white 2px, #ACACAC 2px, #ACACAC 4px)
+			transform: translate(10px, 10px)
+
+		.course__block
+			z-index: 10
+			background-color: white
+			padding: 26px 23px 26px 25px
+			border: 2px solid $blue
+			border-radius: 2px
+			//height: 245px
+			overflow: hidden
+	.course__desc
+		.course__left-desc
+			height: 188px
+			position: relative
+			.course__name
+				h2
+					font-size: 24px
+					//+text-overflow
+					+fb
+			.course__data
+				color: $grey
+			.course__pricing
+				display: block
+				position: absolute
+				bottom: 0px
+				left: 0px
+				+vertical
+				font-size: 0
+				button
+					background: transparent
+					display: inline-block
+					vertical-align: middle
+					@extend %ripples
+					a
+						position: relative
+						@extend %btn
+						background: $blue
+						color: white
+						+tr(background .5s)
+						&:hover
+							background: $red
 
 
 
+
+
+				.price
+					display: inline-block
+					vertical-align: middle
+					+fb
+					font-size: 24px
+					margin-left: 20px
+					+r(815)
+						margin-top: 20px
+					+r(750)
+						margin-left: 0px
+
+
+		.course__right-desc
+			padding: 5px 30px 5px 0
+			height: 181px
+			position: relative
+			.course__text
+				max-height: 160px
+				+text-overflow
+				white-space: normal
+			.course__text-more
+				+vertical
+				position: absolute
+				right: 30px
+				bottom: -13px
+				&:hover i,
+				&:hover a
+					color: $red
+				a,i
+					color: $pagination__link
+					display: inline-block
+					vertical-align: middle
+					margin: 0 3px
+					+tr(color .5s)
+	.course__coach
+		height: 192px
+		overflow: hidden
+		.vertical-line
+			display: inline-block
+			vertical-align: top
+			height: 100%
+			border-right: 3px dashed $grey-light
+		.course__coach-inner
+
+			display: inline-block
+			height: 86%
+			width: 93%
+			text-align: left
+			padding-left: 20px
+			
+			.course__coach-persone
+				overflow-x: hidden
+				overflow-y: auto
+				margin-top: 20px
+				height: 100%
+				+scroll-course
+
+			.course__coach-persone-inner
+				height: 38px
+				vertical-align: middle
+				margin-bottom: 13px
+				+text-overflow  //for Mozilla
+				overflow: visible  //for Mozilla
+				a
+					text-decoration: none
+					color: inherit
+					&:hover
+						color: $red
+
+				.course__coach-pic
+					height: 100%
+					overflow: hidden
+					width: 38px
+					display: inline-block
+					vertical-align: middle
+					border-radius: 50%
+					margin-right: 12px
+					position: relative
+
+				img
+					width: 38px
+					display: inline-block
+					height: auto
+					+vcenter
+
+				p
+					display: inline-block
+					vertical-align: middle
+					width: 130px
+					+text-overflow
+
+.line
+	max-width: 747px
+	margin: 0 auto
+	border-bottom: 3px dashed $grey
+
+
+.contacts
+	padding-top: 65px
+
+	@extend %in
+	.contacts__inner
+		margin-top: 48px
+		padding-bottom: 111px
+		border-bottom: 1px solid $grey-light
+	.contacts__info
+		padding: 10px 0 0 10%
+
+		.contacts__tel
+			font-size: 30px
+			+fb
+			
+		.contacts__mail
+			font-size: 24px
+			a
+				text-decoration: none
+				color: inherit
+				+tr(color .5s)
+				&:hover
+					color: $red
+		.contacts__fb,
+		.contacts__li,
+		.contacts__in
+			line-height: 60px
+			font-size: 30px
+			text-decoration: none
+			color: $blue
+			+tr(color .5s)
+			&:hover
+				color: $red
+
+	.contact__form
+		padding: 0 5% 0 0
+		display: block
+		line-height: 0
+		height: 180px
+		@extend %ripples
+		.vertical-line
+			display: inline-block
+			vertical-align: top
+			height: 100%
+			border-right: 3px dashed $grey-light
+
+
+		form
+			display: inline-block
+			margin-left: 30px
+			padding: 0 2em 2em
+			background: transparent
+			text-align: justify
+			width: 94%
+
+		.contact__input
+			position: relative
+			margin-bottom: 15px
+			display: inline-block
+			width: 30%
+			&:last-of-type
+				width: 100%
+				margin-bottom: 27px
+
+		input
+			font-size: 18px
+			padding: 10px 10px 10px 5px
+			-webkit-appearance: none
+			display: block
+			background: transparent
+			color: $grey
+			width: 100%
+			border: none
+			border-radius: 0
+			border-bottom: 1px solid $grey
+			&:focus ~ .highlight
+				animation: inputHighlighter 0.3s ease
+
+			&:focus
+				outline: none
+
+			&:focus ~ .bar:before,
+			&:focus ~ .bar:after
+				width: 50%
+			&:focus ~ label,
+			&.used ~ label,
+				bottom: 45px
+				//transform: scale(.75)
+				left: -2px
+				font-size: 14px
+				color: $blue
+		/* Label */
+
+		label
+			color: $grey
+			font-size: 18px
+			font-weight: normal
+			position: absolute
+			pointer-events: none
+			left: 5px
+			bottom: 22px
+			+tr(all 0.2s)
+
+		/* Underline */
+
+		.bar
+			position: relative
+			display: block
+			width: 100%
+
+			&:before,
+			&:after
+				content: ''
+				height: 2px
+				width: 0
+				bottom: 1px
+				position: absolute
+				background: $blue
+				+tr(all 0.2s)
+
+
+			&:before
+				left: 50%
+
+			&:after
+				right: 50%
+
+
+
+		/* Highlight */
+		.highlight
+			position: absolute
+			height: 60%
+			width: 100px
+			top: 25%
+			left: 0
+			pointer-events: none
+			opacity: 0.5
+
+
+		/* Button */
+
+		.start__submit
+			position: relative
+			display: inline-block
+			border-radius: 5px
+			font-size: 14px
+			padding: 13px 17px
+			text-decoration: none
+			width: 180px
+			vertical-align: middle
+			color: #fff
+			-webkit-font-smoothing: antialiased
+			text-align: center
+			letter-spacing: 1px
+			background: $blue
+			border: 0
+			cursor: pointer
+			+tr(all 0.5s)
+			&:focus
+				outline: 0
+			&:hover
+				background: $red
+
+.footer
+	height: 55px
+	.footer__logo
+		+vertical
+	.footer__logo,
+	.copyright
+		height: 100%
+		display: inline-block
+		i
+			font-size: 39px
+			vertical-align: middle
+			color: $grey-light
+			&:hover
+				color: $grey
+	.copyright
+		text-align: right
+		p
+			padding: 0 20px
+			color: $grey-light
+		a
+			text-decoration: none
+			color: #3BC6D9
+			&:hover
+				color: darken(#3BC6D9, 20%)
+		p:first-child
+			padding: 10px 20px 0 0
+
+
+
+
+
+
+
+// course_more
+.course__more
+	

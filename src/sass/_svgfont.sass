@@ -5,7 +5,12 @@
 	font-weight: normal
 	font-style: normal
 
-$icon-in: "\EA01"
+$icon-arrow-right: "\EA01"
+$icon-fb: "\EA02"
+$icon-flogo: "\EA03"
+$icon-in: "\EA04"
+$icon-li: "\EA05"
+$icon-logo2: "\EA06"
 
 
 %icon
@@ -22,5 +27,15 @@ $icon-in: "\EA01"
 	@extend %icon
 	display: inline-block
 
+.icon-arrow-right:before
+	content: $icon-arrow-right
+.icon-fb:before
+	content: $icon-fb
+.icon-flogo:before
+	content: $icon-flogo
 .icon-in:before
 	content: $icon-in
+.icon-li:before
+	content: $icon-li
+.icon-logo2:before
+	content: $icon-logo2
