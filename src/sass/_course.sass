@@ -1,0 +1,255 @@
+// for page course_more
+.course__more
+	padding-top: 48px
+	@extend %in
+	.course__more__inner
+		margin-top: 80px
+		.photo img
+			width: 100%
+
+	.description__out
+		.course__more__data
+			margin-bottom: 27px
+			font-size: 12px
+		.course__more__download
+			margin-top: 35px
+			+vertical
+			img
+				width: 40px
+				height: auto
+				display: inline-block
+				vertical-align: middle
+			.download
+				display: inline-block
+				vertical-align: middle
+				margin-left: 10px
+				color: $grey
+				a
+					color: $blue
+					+fb
+					&:hover
+						color: $red
+		.price
+			margin-top: 26px
+			+fb
+			font-size: 24px
+		button
+			margin-top: 35px
+			@extend %btn
+			@extend %ripples
+			a
+				position: relative
+				background: $blue
+				color: white
+				+tr(background .5s)
+				&:hover
+					background: $red
+
+
+// for page index
+.course__main
+	padding-top: 70px
+	padding-bottom: 65px
+	@extend %in
+	+justify
+	line-height: normal
+	font-size: 100%
+	position: relative
+
+	.course__main__wrap-backgradient
+		position: relative
+		z-index: 1
+		height: 300px
+		width: 250px
+		margin-top: 70px
+		display: inline-block
+		&:before
+			content: ""
+			+coverdiv
+			z-index: -1
+			background-size: cover
+			background-image: url('../img/background.svg')
+			transform: translate(5px, 5px)
+		.course__main__block
+			z-index: 10
+			background-color: white
+			padding: 20px
+			border: 2px solid $blue
+			border-radius: 2px
+			height: 100%
+			overflow: hidden
+			text-align: left
+			display: inline-block
+	.course__main-desc
+		height: 188px
+		position: relative
+		.course__name
+			h2
+				font-size: 24px
+				//+text-overflow
+				+fb
+		.course__data
+			color: $grey
+			margin: 10px 0 12px 0
+	.course__main-more
+		+vertical
+		position: absolute
+		right: 20px
+		bottom: 20px
+		&:hover i,
+		&:hover a
+			color: $red
+		a,i
+			color: $pagination__link
+			display: inline-block
+			vertical-align: middle
+			margin: 0 3px
+			+tr(color .5s)
+
+// for page person
+.course
+	padding-top: 48px
+	padding-bottom: 80px
+	@extend %in
+	.course__wrap-backgradient
+		position: relative
+		z-index: 1
+		//height: 245px
+		margin-top: 48px
+		&:before
+			content: ""
+			+coverdiv
+			z-index: -1
+			background-size: cover
+			background-image: url('../img/background.svg')//repeating-linear-gradient(45deg, white 0px, white 2px, #ACACAC 2px, #ACACAC 4px)
+			transform: translate(10px, 10px)
+
+		.course__block
+			z-index: 10
+			background-color: white
+			padding: 26px 25px
+			border: 2px solid $blue
+			border-radius: 2px
+			//height: 245px
+			overflow: hidden
+	.course__desc
+		.course__left-desc
+			height: 188px
+			position: relative
+			.course__name
+				h2
+					font-size: 24px
+					//+text-overflow
+					+fb
+			.course__data
+				color: $grey
+			.course__pricing
+				display: block
+				position: absolute
+				bottom: 0px
+				left: 0px
+				+vertical
+				font-size: 0
+				button
+					background: transparent
+					display: inline-block
+					vertical-align: middle
+					@extend %btn
+					@extend %ripples
+					a
+						position: relative
+						background: $blue
+						color: white
+						+tr(background .5s)
+						&:hover
+							background: $red
+				.price
+					display: inline-block
+					vertical-align: middle
+					+fb
+					font-size: 24px
+					margin-left: 20px
+					+r(815)
+						margin-top: 20px
+					+r(750)
+						margin-left: 0px
+
+
+		.course__right-desc
+			padding: 5px 30px 5px 0
+			height: 181px
+			position: relative
+			.course__text
+				max-height: 160px
+				+text-overflow
+				white-space: normal
+			.course__text-more
+				+vertical
+				position: absolute
+				right: 30px
+				bottom: -13px
+				&:hover i,
+				&:hover a
+					color: $red
+				a,i
+					color: $pagination__link
+					display: inline-block
+					vertical-align: middle
+					margin: 0 3px
+					+tr(color .5s)
+	.course__coach
+		height: 192px
+		overflow: hidden
+		.vertical-line
+			display: inline-block
+			vertical-align: top
+			height: 100%
+			border-right: 3px dashed $grey-light
+		.course__coach-inner
+
+			display: inline-block
+			height: 86%
+			width: 93%
+			text-align: left
+			padding-left: 20px
+			
+			.course__coach-persone
+				overflow-x: hidden
+				overflow-y: auto
+				margin-top: 20px
+				height: 100%
+				+scroll-course
+
+			.course__coach-persone-inner
+				height: 38px
+				vertical-align: middle
+				margin-bottom: 13px
+				+text-overflow  //for Mozilla
+				overflow: visible  //for Mozilla
+				a
+					text-decoration: none
+					color: inherit
+					&:hover
+						color: $red
+
+				.course__coach-pic
+					height: 100%
+					overflow: hidden
+					width: 38px
+					display: inline-block
+					vertical-align: middle
+					border-radius: 50%
+					margin-right: 12px
+					position: relative
+
+				img
+					width: 38px
+					display: inline-block
+					height: auto
+					+vcenter
+
+				p
+					display: inline-block
+					vertical-align: middle
+					width: 130px
+					+text-overflow

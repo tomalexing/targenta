@@ -1,0 +1,60 @@
+.coach
+	@extend %in
+	padding-top: 70px
+	position: relative
+	.coach__inner
+		margin-top: 55px
+		&.--main-coach_inner
+			margin-top: 65px
+	.coach-persone-inner
+		display: inline-block
+		vertical-align: top
+		width: 19%
+		height: 300px
+		text-align: center
+		margin-bottom: 60px
+	.coach-persone-inner-href
+		display: block
+		text-decoration: none
+		position: relative
+		&:after
+			content: ""
+			position: absolute
+			left: 33px
+			top: 0px
+			z-index: 4
+			//background-image:  url("./../img/bg_persone.svg")
+			background-repeat: no-repeat
+			height: 180px
+			width: 170px
+			opacity: 0
+			+tr(opacity .5s)
+		&:hover:after
+			background-image:  url("./../img/bg_persone.svg")
+			opacity: 1
+		&:hover p
+			color: $red
+		.coach-pic
+			overflow: hidden
+			position: relative
+			z-index: 5
+			display: inline-block
+			vertical-align: middle
+			border-radius: 50%
+			line-height: 0
+			img
+				width: 140px
+				height: auto
+				border-radius: 50%
+				padding-top: 11px
+		p
+			margin-top: 35px
+			color: black
+			display: inline-block
+			font-size: 18px
+			+fb
+		sub
+			margin-top: 25px
+			color: $grey
+			display: inline-block
+			width: 140px

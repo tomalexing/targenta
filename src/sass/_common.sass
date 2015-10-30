@@ -52,7 +52,7 @@
 
 	&::-webkit-scrollbar
 		width: 8px
-		background: transparent
+		background: white
 	&::-webkit-scrollbar-track
 		background: transparent
 	&::-webkit-scrollbar-thumb
@@ -79,6 +79,10 @@
 +font(PTSansBold, PTSansBold)
 =fb
 	font-family: "PTSansBold", Arial, sans-serif
+
++font(PTSansNarrow, PTSansNarrow)
+=fn
+	font-family: "PTSansNarrow" ,"PTSans", Arial, sans-serif
 //variables
 $lang: #808080
 $textMemu: #231F20
@@ -96,6 +100,7 @@ body
 	+scroll
 *
 	+box
+h1
 
 // common blocks
 .out
@@ -116,10 +121,16 @@ body
 	margin: 0 auto
 
 %btn
-	border-radius: 5px
 	font-size: 14px
-	padding: 13px 17px
+	line-height: 34px
 	text-decoration: none
+	+fn
+	a
+		border-radius: 5px
+		padding: 0px 17px
+		text-decoration: none
+		display: inline-block
+		letter-spacing: 1px
 
 [class$="__title"]
 	//display: inline-block
@@ -128,6 +139,29 @@ body
 		+fb
 		font-size: 24px
 		text-align: center
+[class$="main-btn"]
+	display: inline-block
+	text-align: center
+	width: 100%
+	margin-bottom: 65px
+	button
+		@extend %btn
+		@extend %ripples
+		position: relative
+		background: $red
+		+tr(background .5s)
+		border-radius: 5px
+		&.--change-color
+			background: $blue
+			&:hover
+				background: $red
+		&:hover
+			background: $blue
+		a
+			color: white
+
+
+
 
 @keyframes ripples
 	0%
@@ -174,3 +208,12 @@ body
 
 	.ripples.is-active .ripplesCircle
 		animation: ripples .4s ease-in
+
+.line
+	max-width: 747px
+	margin: 0 auto
+	border-bottom: 3px dashed $grey
+
+.--remove-buttons  .slick-prev,
+.--remove-buttons .slick-next
+	display: none !important

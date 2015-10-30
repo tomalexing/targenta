@@ -1,0 +1,193 @@
+.contacts
+	padding-top: 65px
+
+	@extend %in
+	.contacts__inner
+		margin-top: 48px
+		padding-bottom: 111px
+		border-bottom: 1px solid $grey-light
+	.contacts__info
+		padding: 10px 0 0 10%
+
+		.contacts__tel
+			font-size: 30px
+			+fb
+			
+		.contacts__mail
+			font-size: 24px
+			a
+				text-decoration: none
+				color: inherit
+				+tr(color .5s)
+				&:hover
+					color: $red
+		.contacts__fb,
+		.contacts__li,
+		.contacts__in
+			letter-spacing: 4px
+			line-height: 60px
+			font-size: 30px
+			text-decoration: none
+			color: $blue
+			+tr(color .5s)
+			&:hover
+				color: $red
+
+	.contact__form
+		padding: 0 5% 0 0
+		display: block
+		line-height: 0
+		height: 180px
+		@extend %ripples
+		.vertical-line
+			display: inline-block
+			vertical-align: top
+			height: 100%
+			border-right: 3px dashed $grey-light
+
+
+		form
+			display: inline-block
+			margin-left: 30px
+			padding: 0 2em 2em
+			background: transparent
+			text-align: justify
+			width: 94%
+
+		.contact__input
+			position: relative
+			margin-bottom: 15px
+			display: inline-block
+			width: 30%
+			&:last-of-type
+				width: 100%
+				margin-bottom: 27px
+
+		input
+			font-size: 18px
+			padding: 10px 10px 10px 5px
+			-webkit-appearance: none
+			display: block
+			background: transparent
+			color: $grey
+			width: 100%
+			border: none
+			border-radius: 0
+			border-bottom: 1px solid $grey
+			&:focus ~ .highlight
+				animation: inputHighlighter 0.3s ease
+
+			&:focus
+				outline: none
+
+			&:focus ~ .bar:before,
+			&:focus ~ .bar:after
+				width: 50%
+			&:focus ~ label,
+			&.used ~ label,
+				bottom: 45px
+				//transform: scale(.75)
+				left: -2px
+				font-size: 14px
+				color: $blue
+		/* Label */
+
+		label
+			color: $grey
+			font-size: 18px
+			font-weight: normal
+			position: absolute
+			pointer-events: none
+			left: 5px
+			bottom: 22px
+			+tr(all 0.2s)
+
+		/* Underline */
+
+		.bar
+			position: relative
+			display: block
+			width: 100%
+
+			&:before,
+			&:after
+				content: ''
+				height: 2px
+				width: 0
+				bottom: 1px
+				position: absolute
+				background: $blue
+				+tr(all 0.2s)
+
+
+			&:before
+				left: 50%
+
+			&:after
+				right: 50%
+
+
+
+		/* Highlight */
+		.highlight
+			position: absolute
+			height: 60%
+			width: 100px
+			top: 25%
+			left: 0
+			pointer-events: none
+			opacity: 0.5
+
+
+		/* Button */
+
+		.start__submit
+			position: relative
+			display: block
+			border-radius: 5px
+			font-size: 18px
+			line-height: 43px
+			text-decoration: none
+			width: 180px
+			vertical-align: middle
+			color: #fff
+			-webkit-font-smoothing: antialiased
+			text-align: center
+			letter-spacing: 1px
+			background: $blue
+			border: 0
+			cursor: pointer
+			float: right
+			+tr(all 0.5s)
+			+fn
+			&:focus
+				outline: 0
+			&:hover
+				background: $red
+
+.footer
+	height: 55px
+	.footer__logo
+		+vertical
+	.footer__logo,
+	.copyright
+		height: 100%
+		display: inline-block
+		i
+			font-size: 29px
+			vertical-align: middle
+			color: $grey-light
+			&:hover
+				color: $grey
+	.copyright
+		text-align: right
+		p
+			padding: 0 20px
+			color: $grey-light
+		a
+			text-decoration: none
+			color: #3BC6D9
+			&:hover
+				color: darken(#3BC6D9, 20%)
+		p:first-child
+			padding: 10px 20px 0 0
