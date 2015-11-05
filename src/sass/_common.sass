@@ -80,9 +80,7 @@
 =fb
 	font-family: "PTSansBold", Arial, sans-serif
 
-+font(PTSansNarrow, PTSansNarrow)
-=fn
-	font-family: "PTSansNarrow" ,"PTSans", Arial, sans-serif
+
 //variables
 $lang: #808080
 $textMemu: #231F20
@@ -124,13 +122,16 @@ h1
 	font-size: 14px
 	line-height: 34px
 	text-decoration: none
-	+fn
+	+f
 	a
 		border-radius: 5px
 		padding: 0px 17px
 		text-decoration: none
 		display: inline-block
-		letter-spacing: 1px
+%btn2
+	font-size: 18px
+	line-height: 43px
+
 
 [class$="__title"]
 	//display: inline-block
@@ -146,6 +147,7 @@ h1
 	margin-bottom: 65px
 	button
 		@extend %btn
+		@extend %btn2
 		@extend %ripples
 		position: relative
 		background: $red
@@ -214,6 +216,6 @@ h1
 	margin: 0 auto
 	border-bottom: 3px dashed $grey
 
-.--remove-buttons  .slick-prev,
-.--remove-buttons .slick-next
+.--remove-buttons .slick-arrow
 	display: none !important
+	visibility: hidden !important

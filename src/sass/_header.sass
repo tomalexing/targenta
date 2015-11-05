@@ -8,6 +8,7 @@
 	background: white
 	+tr(background .5s)
 	z-index: 100
+	overflow: hidden
 	.is-menu-open &
 		background: #1A1A1A
 	.header__inner
@@ -37,14 +38,15 @@
 		display: inline-block
 		vertical-align: middle
 		.nav
-			margin-right: -135px
+			margin-right: -170px
 			+tr(all .5s)
 			.is-menu-open &
-				margin-right: 48px
+				margin-right: 12px
 			.nav__item
 				display: inline-block
 				vertical-align: top
 				margin-right: 15px
+				letter-spacing: .5px
 				@extend %btn
 				a
 					color: $textMemu
@@ -59,21 +61,20 @@
 		background: transparent
 		margin-right: 0
 		visibility: hidden
-		transition:  transform .5s, margin .5s,visibility .5s
-		+translate(200%, 0)
+		+translate(250%, 0)
 		z-index: -1
 		@extend %btn
 		@extend %ripples
 		border: 1px solid transparent
 		background: $blue
 		border-radius: 5px
-		+tr(background .5s)
+		transition:  transform .5s, margin .5s,visibility .5s, background .5s
 		&:hover
 			background: $red
 		vertical-align: middle
 		.is-menu-open &
 			visibility: visible
-			margin-right: 55px
+			margin-right: 25px
 			display: inline-block
 			+translate(0, 0)
 			z-index: 10
@@ -101,16 +102,19 @@
 			cursor: pointer
 			padding: 0 2px
 			border: 1px solid transparent
+			background: transparent
+			border: 1px solid transparent
+			border-radius: 2px
 			+tr(color .5s)
 			.is-menu-open &
 				color: white
 			.choose-lang &
 				margin-bottom: 3px
 				line-height: 15px
+				&:hover
+					background: $red
+					border: 1px solid $red
 		span:not(:first-child)
-			border: 1px solid $red
-			background: $red
-			border-radius: 2px
 			margin-top: 5px
 			.choose-lang &
 				margin-bottom: 25px

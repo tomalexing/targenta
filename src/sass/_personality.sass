@@ -1,0 +1,32 @@
+.personality
+	padding-top: 30px
+	.personality__inner
+		@extend %in2
+		margin-top: 70px
+		margin-bottom: 70px
+		.description__out
+		.photo
+			img
+				width: 100%
+				height: auto
+		.personality__name
+			margin-bottom: 16px
+		.personality__position
+			margin-bottom: 45px
+		.personality__speach
+			margin-bottom: 36px
+		.personality__position
+			color: $grey
+		.personality__social
+			.personality__fb,
+			.personality__li
+				text-decoration: none
+				color: $grey
+				font-size: 22px
+				+tr(color .5s)
+				&:hover
+					color: $red
+	.line
+		max-width: 747px
+		margin: 0 auto
+		border-bottom: 3px dashed $grey

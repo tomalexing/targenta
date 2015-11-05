@@ -55,7 +55,8 @@
 	line-height: normal
 	font-size: 100%
 	position: relative
-
+	.slick-arrow
+		display: none !important
 	.course__main__wrap-backgradient
 		position: relative
 		z-index: 1
@@ -67,9 +68,10 @@
 			content: ""
 			+coverdiv
 			z-index: -1
-			background-size: cover
+			background-size: 1134.7px 235.8px
 			background-image: url('../img/background.svg')
 			transform: translate(5px, 5px)
+			background-repeat: repeat
 		.course__main__block
 			z-index: 10
 			background-color: white
@@ -120,9 +122,10 @@
 			content: ""
 			+coverdiv
 			z-index: -1
-			background-size: cover
+			background-size: auto 265px
 			background-image: url('../img/background.svg')//repeating-linear-gradient(45deg, white 0px, white 2px, #ACACAC 2px, #ACACAC 4px)
 			transform: translate(10px, 10px)
+			height: 245px
 
 		.course__block
 			z-index: 10

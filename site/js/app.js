@@ -40,9 +40,18 @@ $(document).ready(function() {
 	$('.header .lang sub,.header .lang span').on('click',function(){
 		$('body').toggleClass("choose-lang");
 	});
-	$('.header .lang sub,.header .lang span').on('click',function(){
-		$('body').toggleClass("choose-lang");
+	$('.header .order').on('click', function(){
+		$('body').addClass("popup-is-visible");
 	});
+
+	$('.js-popup__close').on('click', function(){
+		$('body').removeClass("popup-is-visible");
+	});
+	$('a#ord_course').on('click', function(e){
+			e.preventDefault();
+		$('body').addClass("popup-is-visible");
+	});
+
 	//menu
 	var menuOpenClose = function menuOpenClose(){
 		var scrollPos = $(document).scrollTop();

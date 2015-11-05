@@ -1,0 +1,95 @@
+.about__more
+	@extend %in
+	padding-top: 70px
+	.about__more__inner
+		margin-top: 70px
+	p
+		padding-bottom: 30px
+	.description__out
+		overflow: hidden
+	.about__more__inner
+		img
+			width: 100%
+			height: auto
+	.divframe
+		position: relative
+		padding: 27px 
+		display: block
+		height: auto
+		width: calc(100% - 10px)
+		background: white
+		border: 2px solid $blue
+		border-radius: 2px
+		&:before
+			content: ""
+			+coverdiv
+			z-index: -1
+			background-size: 1134.7px 235.8px
+			background-image: url('../img/background.svg')
+			transform: translate(10px, 10px)
+			background-repeat: repeat
+		.divframe__inner
+			display: inline-block
+			width: 48%
+			vertical-align: top
+			padding-bottom: 0px
+		.divframe__inner:first-child
+			padding-right: 45px
+		.divframe__inner:last-child
+			padding-left: 45px
+			border-left: 1px solid $grey-light
+
+		.divframe__inner .blue
+			color: $blue
+	button
+		margin-top: 36px
+		background: transparent
+		display: inline-block
+		vertical-align: middle
+		@extend %btn
+		@extend %btn2
+		@extend %ripples
+		a
+			position: relative
+			background: $blue
+			color: white
+			+tr(background .5s)
+			&:hover
+				background: $red
+	.about__after
+		margin-top: 80px
+		column-count: 2
+		column-width: 500px
+		column-gap: 60px
+
+	.about__after-frame
+		margin-top: 80px
+		padding: 27px 
+		display: block
+		height: auto
+		width: calc(100% - 10px)
+		background: white
+		border: 2px solid $blue
+		border-radius: 2px
+		margin-top: 80px
+		margin-bottom: 80px
+		position: relative
+		&:before
+			content: ""
+			+coverdiv
+			z-index: -1
+			background-size: 1134.7px 235.8px
+			background-image: url('../img/background.svg')
+			transform: translate(10px, 10px)
+			background-repeat: repeat
+		.title
+			display: block
+			color: $blue
+
+		ul
+			column-count: 2
+			column-width: 500px
+			column-gap: 60px
+			li
+				list-style-type: disc
+				list-style-position: inside

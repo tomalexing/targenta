@@ -7,9 +7,10 @@
 	z-index: 2000
 	overflow-y: auto
 	background: transparent
-	+tr(transform .5s)
-	transform: translate(0,-150%)
-	&.is-visible
+	+tr(transform .5s ease-out)
+	transform: translate(0,-100%)
+
+	.popup-is-visible &
 		transform: translate(0,0)
 	.popup__center
 		position: relative
@@ -46,7 +47,7 @@
 				display: block
 				top: 6px
 				right: 1px
-				width: 13px
+				width: 12px
 				height: 1.5px
 				transform: rotate(45grad)
 				background: white
@@ -56,7 +57,7 @@
 				display: block
 				top: 6px
 				right: 1px
-				width: 13px
+				width: 12px
 				height: 1.5px
 				transform: rotate(-45grad)
 				background: white
@@ -74,15 +75,11 @@
 				content: ""
 				+coverdiv
 				z-index: -1
-				background-size: cover
+				background-size: 1134.7px 235.8px
 				background-image: url('../img/background.svg')
 				transform: translate(7px, 7px)
+				background-repeat: repeat
 			@extend %ripples
-			.vertical-line
-				display: inline-block
-				vertical-align: top
-				height: 100%
-				border-right: 3px dashed $grey-light
 
 
 			form
@@ -195,7 +192,6 @@
 				border: 0
 				cursor: pointer
 				+tr(all 0.5s)
-				+fn
 				&:focus
 					outline: 0
 				&:hover

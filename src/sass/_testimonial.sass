@@ -1,0 +1,63 @@
+.testimonial
+	@extend %in
+	padding-top: 70px
+	position: relative
+	.testimonial__inner
+		@extend %in2
+		margin-top: 70px
+	.testimonial-persone
+
+	.testimonial-persone-left
+		.coach-pic
+			display: inline-block
+			position: relative
+			width: 100%
+			height: 100%
+			font-size: 0px
+			text-align: center
+			img
+				width: 140px
+				height: 140px
+				border-radius: 50%
+				overflow: hidden
+				display: inline-block
+			.quotes
+				position: absolute
+				width: 35px
+				height: 35px
+				bottom: 0
+				left: 52%
+				border-radius: 50%
+				background-color: $pagination__link
+				line-height: 35px
+				font-size: 13px
+				color: white
+				display: inline-block
+				text-align: center
+				transform: translate(0,0)
+				backface-visibility: hidden
+		p
+			text-align: center
+		p:nth-of-type(1)
+			padding: 20px 0 0 0
+			+fb
+			font-size: 18px
+	.testimonial-persone-right
+		height: 140px
+		padding: 33px
+		border: 1px solid #D2D2D2
+		border-radius: 5px
+		background-color: white
+		position: relative
+		&:after
+			content: ""
+			position: absolute
+			top: 50%
+			left: -10px
+			+arr(10, 20, white, l)
+		&:before
+			content: ""
+			position: absolute
+			top: 50%
+			left: -11px
+			+arr(11, 20,  #D2D2D2, l)

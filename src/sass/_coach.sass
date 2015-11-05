@@ -6,13 +6,16 @@
 		margin-top: 55px
 		&.--main-coach_inner
 			margin-top: 65px
+		.coach__persone
+			font-size: 0px
 	.coach-persone-inner
 		display: inline-block
 		vertical-align: top
-		width: 19%
+		width: 20%
 		height: 300px
 		text-align: center
 		margin-bottom: 60px
+		font-size: 14px
 	.coach-persone-inner-href
 		display: block
 		text-decoration: none
@@ -20,15 +23,16 @@
 		&:after
 			content: ""
 			position: absolute
-			left: 33px
+			left: 50%
 			top: 0px
 			z-index: 4
-			//background-image:  url("./../img/bg_persone.svg")
+			//background-image:  url("./../img/bg_persone.svg")zz
 			background-repeat: no-repeat
 			height: 180px
 			width: 170px
 			opacity: 0
 			+tr(opacity .5s)
+			transform: translate(-81px, 0px)
 		&:hover:after
 			background-image:  url("./../img/bg_persone.svg")
 			opacity: 1
@@ -42,11 +46,13 @@
 			vertical-align: middle
 			border-radius: 50%
 			line-height: 0
+			font-size: 100%
 			img
 				width: 140px
 				height: auto
 				border-radius: 50%
-				padding-top: 11px
+				margin-top: 11px
+				box-sizing: border-box
 		p
 			margin-top: 35px
 			color: black
@@ -58,3 +64,4 @@
 			color: $grey
 			display: inline-block
 			width: 140px
+			font-size: 14px
