@@ -14,6 +14,8 @@ $(document).ready(function() {
 
 	 });
     //clicking
+
+    var  course = null;
 	$('.header .lang sub,.header .lang span').on('click',function(){
 		$('body').toggleClass("choose-lang");
 	});
@@ -23,10 +25,12 @@ $(document).ready(function() {
 
 	$('.js-popup__close').on('click', function(){
 		$('body').removeClass("popup-is-visible");
+		course = null;
 	});
 	$('a#ord_course').on('click', function(e){
-			e.preventDefault();
+		e.preventDefault();
 		$('body').addClass("popup-is-visible");
+		course = $(e.target.closest('.course__pricing')).siblings()[0].childNodes[0].childNodes[0].childNodes;
 	});
 
 	//menu
@@ -81,15 +85,17 @@ $(document).ready(function() {
 		course_main.slick({
 			speed: 600,
 			dots: false,
-			infinite: true,
-			slidesToShow: 4,
-			slidesToScroll: 2
+			infinite: false,
+			slidesToShow: 1,
+			slidesToScroll: 1,
+			autoplay: true,
+			autoplaySpeed: 5000,
 		});
 	//}
 		coach_main.slick({
 			speed: 600,
 			dots: false,
-			infinite: true,
+			infinite: false,
 			slidesToShow: 5,
 			slidesToScroll: 2
 		});
@@ -97,7 +103,7 @@ $(document).ready(function() {
 		testimonial.slick({
 			speed: 600,
 			dots: false,
-			infinite: true,
+			infinite: false,
 			slidesToShow: 1,
 			slidesToScroll: 1
 		});
@@ -105,91 +111,189 @@ $(document).ready(function() {
 		partners.slick({
 			speed: 600,
 			dots: false,
-			infinite: true,
-			slidesToShow: 7,
+			infinite: false,
+			slidesToShow: 5,
 			slidesToScroll: 2
 		});
 
-		$("form#formReservation, form#formReservation1, form#formReservation2, form#formReservation3").on("submit", function(event) {
-			event.preventDefault();
-			//console.log($(this).serialize() );
-			if(!bound) $("div").on( "click", removeErrorOnBlur );
-			var $self =$(this);
-		    if(!validation($self.attr("id"))) {
-		        $.ajax({
-		            url: $self.attr("action"),
-		            data: $self.serialize(),
-		            type: 'post',
-		            dataType: "html",
-		            success: function( data, textStatus, jQxhr ) {
-		              //console.log("data is "+ data)
-			            var $input= $("form#" + $self.attr("id")+" .start__submit input");
-				        $input.parent().append("<strong class='success'>РЈСЃРїРµС€РЅРѕ</strong>");
-				        $("form#" + $self.attr("id")+" .start__input input").on('change',function(){$input.next().fadeOut()});
-						//setInterval(function(){$input.next().fadeOut()},1000);
-						//$("form#" + $self.attr("id")+" .start__input input").val("") ;
-						$('.js-popup-success').addClass('is-visible');
 
-		        	}
-		        });
+		 function tabs(){
+		// 	// hint appearance
+			var hoverhandle_in = function() {
+				console.log(this)
+				$(this).css('visibility','visible');
+				var name = $(this).data('name');
+				$('.'+name).addClass('is-viewing');
+				$(this).closest('.top__bg-svg')[0].classList.add('is-drawn'+name.substr(-1,1));
+				$('.'+name).closest('.tab-container')[0].classList.add('is-drawn');
+			}
+			//hoverhandle_in.call($('.tab-hover[data-name="tab4"]'));
+			var hoverhandle_out = function() {
+				//console.log('out');
+					console.log(this)
+				$(this).css('visibility','hidden');
+				var name = $(this).data('name');
+				$(this).closest('.top__bg-svg')[0].classList.remove('is-drawn'+name.substr(-1,1));
+				$('.'+name).closest('.tab-container')[0].classList.remove('is-drawn');
+				$('.tab').removeClass('is-viewing');
+				$(this).find('.system__hint').removeClass('is-visible');
+				$('.' + name).removeClass('is-visible');
+			}
+			//hoverhandle_out.call($(['data-name="tab1"']);
+			$('.tab-hover').hover(hoverhandle_in, hoverhandle_out);
+			setTimeout(hoverhandle_in.bind($('.tab-hover[data-name="tab4"]')),400);
+			setTimeout(hoverhandle_out.bind($('.tab-hover[data-name="tab4"]')),3000);
 
-		    }
-		    return false;
+		 }
+
+		tabs();
+
+
+		$(".start__submit").click(function(e){
+
+		    e.preventDefault(); // if the clicked element is a link
+
+		    //...
+		    console.log('in');
+
+		    var data = { action: 'siteWideMessage', 'more':'values' };
+
+		    $.post('http://simpla/wp-admin/admin-ajax.php', data, function(response) {
+		        console.log(response);
+		    });
+
 		});
 
+		var isChrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
+		var isSafari = /Safari/.test(navigator.userAgent) && /Apple Computer/.test(navigator.vendor);
 
-		function validation (formId) {
-		    if($('form#'+ formId +' .success')[0] ) $('form#'+ formId +' .success').remove();
-		    $('form#'+ formId +' .field-error').remove();
-		    $('form#'+ formId +' .start__input').removeClass('inputError');
-		    var hasError = false;
-		    $('form#'+ formId +' .requiredField').each(function() {
-		        if(jQuery.trim($(this).val()) == '' || jQuery.trim($(this).val()) == jQuery.trim($(this).attr('placeholder'))){
-		            $(this).parent().append('<strong class="field-error">Р­С‚Рѕ РѕР±СЏР·Р°С‚РµР»СЊРЅРѕРµ РїРѕР»Рµ.</strong>');
-		            $(this).parent().addClass('inputError');
-		            hasError = true;
-		        } else {
-		            if($(this).hasClass('email')) {
-		                var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
-		                if(!emailReg.test(jQuery.trim($(this).val()))){
-		                    $(this).parent().append('<strong class="field-error">Р’РІРµРґРёС‚Рµ РєРѕСЂСЂРµРєС‚РЅС‹Р№ Р°РґСЂРµСЃ РїРѕС‡С‚С‹.</strong>');
-		                    $(this).parent().addClass('inputError');
-		                    hasError = true;
-		                } 
-		            } else if($(this).hasClass('phone')) {
-		                var phoneReg = /^\+?[0-9 ]*$/;
-		                if(!phoneReg.test(jQuery.trim($(this).val()))){
-		                    $(this).parent().append('<strong class="field-error">Р’РІРµРґРёС‚Рµ РєРѕСЂСЂРµРєС‚РЅС‹Р№ РЅРѕРјРµСЂ.</strong>');
-		                    $(this).parent().addClass('inputError');
-		                    hasError = true;
-		                } 
-		            } else if($(this).hasClass('date')) {
-		                var dateReg = /^[0-9]{2}\/[0-9]{2}\/[0-9]{4}$/;
-		                if(!dateReg.test(jQuery.trim($(this).val()))){
-		                    $(this).parent().append('<strong class="field-error">Please enter a valid date.</strong>');
-		                    $(this).parent().addClass('inputError');
-		                    hasError = true;
-		                } 
-		            } else if($(this).hasClass('time')) {
-		                var dateReg = /^[0-9]{2}:[0-9]{2}$/;
-		                if(!dateReg.test(jQuery.trim($(this).val()))){
-		                    $(this).parent().append('<strong class="field-error">Please enter a valid time.</strong>');
-		                    $(this).parent().addClass('inputError');
-		                    hasError = true;
-		                } 
-		            } else if($(this).hasClass('persons')) {
-		                var personsReg = /^[1-9]{1}[0-9]{0,1}$/;
-		                if(!personsReg.test(jQuery.trim($(this).val()))){
-		                    $(this).parent().append('<strong class="field-error">Please enter a valid number of persons.</strong>');
-		                    $(this).parent().addClass('inputError');
-		                    hasError = true;
-		                } 
-		            }
-		        }
+		if( !isChrome && !isSafari){
+
+			$('button:not(.order)').on('click', function(event){
+				var href = $(this).children();
+				if(!href.is('#ord_course')){
+					window.location = $(_self).children().attr('href');
+				}
+
 			});
 
-		    return hasError;
+			$('a#ord_course').on('click', function(e){
+				e.preventDefault();
+				$('body').addClass("popup-is-visible");
+				course = $(e.target.closest('.course__pricing')).siblings()[0].childNodes[0].childNodes[0].childNodes;
+			});
 		}
-
-
 });
+
+
+// (function($){
+
+//   /* addClass shim
+//    ****************************************************/
+//   var addClass = $.fn.addClass;
+//   $.fn.addClass = function(value) {
+//     var orig = addClass.apply(this, arguments);
+ 
+//     var elem,
+//       i = 0,
+//       len = this.length;
+
+//     for (; i < len; i++ ) {
+//       elem = this[ i ];
+//       if ( elem instanceof SVGElement ) {
+//         var classes = $(elem).attr('class');
+//         if ( classes ) {
+//             var index = classes.indexOf(value);
+//             if (index === -1) {
+//               classes = classes + " " + value;
+//               $(elem).attr('class', classes);
+//             }
+//         } else {
+//           $(elem).attr('class', value);
+//         }
+//       }
+//     }
+//     return orig;
+//   };
+
+//   /* removeClass shim
+//    ****************************************************/
+//   var removeClass = $.fn.removeClass;
+//   $.fn.removeClass = function(value) {
+//     var orig = removeClass.apply(this, arguments);
+
+//     var elem,
+//       i = 0,
+//       len = this.length;
+
+//     for (; i < len; i++ ) {
+//       elem = this[ i ];
+//       if ( elem instanceof SVGElement ) {
+//         var classes = $(elem).attr('class');
+//         if ( classes ) {
+//           var index = classes.indexOf(value);
+//           if (index !== -1) {
+//             classes = classes.substring(0, index) + classes.substring((index + value.length), classes.length);
+//             $(elem).attr('class', classes);
+//           }
+//         }
+//       }
+//     }
+//     return orig;
+//   };
+
+//   /* hasClass shim
+//    ****************************************************/
+//   var hasClass = $.fn.hasClass;
+//   $.fn.hasClass = function(value) {
+//     var orig = hasClass.apply(this, arguments);
+
+//     var elem,
+//       i = 0,
+//       len = this.length;
+        
+//     for (; i < len; i++ ) {
+//       elem = this[ i ];
+//       if ( elem instanceof SVGElement ) {
+//         var classes = $(elem).attr('class');
+
+//         if ( classes ) {
+//           if ( classes.indexOf(value) === -1 ) {
+//             return false;
+//           } else {
+//             return true;
+//           }
+//         } else {
+//             return false;
+//         }
+//       }
+//     }
+//     return orig;
+
+//     $.fn.getElementsByClassName = function (classname) {
+//         return this.querySelectorAll('.' + classname);
+//     };
+
+//   };
+// })(jQuery);
+(function() {
+    var indexOf = [].indexOf || function(prop) {
+        for (var i = 0; i < this.length; i++) {
+            if (this[i] === prop) return i;
+        }
+        return -1;
+    };
+    window.getElementsByClassName = function(className,context) {
+        if (context.getElementsByClassName) return context.getElementsByClassName(className);
+        var elems = document.querySelectorAll ? context.querySelectorAll("." + className) : (function() {
+            var all = context.getElementsByTagName("*"),
+                elements = [],
+                i = 0;
+            for (; i < all.length; i++) {
+                if (all[i].className && (" " + all[i].className + " ").indexOf(" " + className + " ") > -1 && indexOf.call(elements,all[i]) === -1) elements.push(all[i]);
+            }
+            return elements;
+        })();
+        return elems;
+    };
+})();

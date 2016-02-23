@@ -8,10 +8,10 @@
 	overflow-y: auto
 	background: transparent
 	+tr(transform .5s ease-out)
-	transform: translate(0,-100%)
+	transform: translate3d(0,-100%,0)
 
 	.popup-is-visible &
-		transform: translate(0,0)
+		transform: translate3d(0,0,0)
 	.popup__center
 		position: relative
 		display: table
@@ -181,7 +181,7 @@
 				font-size: 18px
 				line-height: 43px
 				text-decoration: none
-				width: 180px
+				width: 220px
 				margin: 0 auto
 				vertical-align: middle
 				color: #fff
@@ -192,6 +192,7 @@
 				border: 0
 				cursor: pointer
 				+tr(all 0.5s)
+				+f
 				&:focus
 					outline: 0
 				&:hover

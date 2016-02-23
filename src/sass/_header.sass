@@ -9,6 +9,7 @@
 	+tr(background .5s)
 	z-index: 100
 	overflow: hidden
+	transform: translate3d(0,0,0)
 	.is-menu-open &
 		background: #1A1A1A
 	.header__inner
@@ -37,11 +38,11 @@
 	.heeder__nav
 		display: inline-block
 		vertical-align: middle
+		transform: translate(170px, 0)
+		+tr(all .5s)
+		.is-menu-open &
+			transform: translate(12px, 0)
 		.nav
-			margin-right: -170px
-			+tr(all .5s)
-			.is-menu-open &
-				margin-right: 12px
 			.nav__item
 				display: inline-block
 				vertical-align: top
@@ -130,3 +131,6 @@
 				border-color: white transparent transparent transparent
 			.choose-lang &
 				+rotate(180)
+		a
+			text-decoration: none
+			color: $textMemu

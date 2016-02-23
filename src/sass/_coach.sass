@@ -8,6 +8,7 @@
 			margin-top: 65px
 		.coach__persone
 			font-size: 0px
+			text-align: center
 	.coach-persone-inner
 		display: inline-block
 		vertical-align: top
@@ -29,10 +30,10 @@
 			//background-image:  url("./../img/bg_persone.svg")zz
 			background-repeat: no-repeat
 			height: 180px
-			width: 170px
+			width: 160px
 			opacity: 0
 			+tr(opacity .5s)
-			transform: translate(-81px, 0px)
+			transform: translate(-50%, 0px)
 		&:hover:after
 			background-image:  url("./../img/bg_persone.svg")
 			opacity: 1
@@ -47,12 +48,15 @@
 			border-radius: 50%
 			line-height: 0
 			font-size: 100%
+			backface-visibility: hidden
+			transform: translate3d(0,0,0)
 			img
 				width: 140px
-				height: auto
+				height: 140px
 				border-radius: 50%
 				margin-top: 11px
 				box-sizing: border-box
+				object-fit: cover
 		p
 			margin-top: 35px
 			color: black

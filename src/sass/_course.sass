@@ -29,6 +29,15 @@
 					+fb
 					&:hover
 						color: $red
+		.course__more__speach
+			div:not(:first-of-type)
+				margin-top: 17px
+			p:not(:first-of-type)
+				margin-top: 17px
+			ul
+				list-style-position: outside
+				list-style-type: disc
+				margin-left: 34px
 		.price
 			margin-top: 26px
 			+fb
@@ -47,72 +56,54 @@
 
 
 // for page index
-.course__main
-	padding-top: 70px
-	padding-bottom: 65px
-	@extend %in
-	+justify
-	line-height: normal
-	font-size: 100%
-	position: relative
-	.slick-arrow
-		display: none !important
-	.course__main__wrap-backgradient
-		position: relative
-		z-index: 1
-		height: 300px
-		width: 250px
-		margin-top: 70px
-		display: inline-block
-		&:before
-			content: ""
-			+coverdiv
-			z-index: -1
-			background-size: 1134.7px 235.8px
-			background-image: url('../img/background.svg')
-			transform: translate(5px, 5px)
-			background-repeat: repeat
-		.course__main__block
-			z-index: 10
-			background-color: white
-			padding: 20px
-			border: 2px solid $blue
-			border-radius: 2px
-			height: 100%
-			overflow: hidden
-			text-align: left
-			display: inline-block
-	.course__main-desc
-		height: 188px
-		position: relative
-		.course__name
-			h2
-				font-size: 24px
-				//+text-overflow
-				+fb
-		.course__data
-			color: $grey
-			margin: 10px 0 12px 0
-	.course__main-more
-		+vertical
-		position: absolute
-		right: 20px
-		bottom: 20px
-		&:hover i,
-		&:hover a
-			color: $red
-		a,i
-			color: $pagination__link
-			display: inline-block
-			vertical-align: middle
-			margin: 0 3px
-			+tr(color .5s)
+// .course__main
+// 	padding-top: 70px
+// 	padding-bottom: 65px
+// 	@extend %in
+	// max-width: 1150px // its change main container
+	// //+justify
+	// line-height: normal
+	// font-size: 100%
+	// position: relative
 
-// for page person
+	// .course__main__wrap-backgradient
+	// 	position: relative
+	// 	z-index: 1
+	// 	width: 97%
+	// 	height: 256px
+	// 	margin-top: 70px
+	// 	display: inline-block
+	// 	&:before
+	// 		content: ""
+	// 		+coverdiv
+	// 		z-index: -1
+	// 		background-size: 1134.7px 235.8px
+	// 		background-image: url('../img/background.svg')
+	// 		transform: translate(5px, 5px)
+	// 		background-repeat: repeat
+	// 	.course__main__block
+	// 		z-index: 10
+	// 		background-color: white
+	// 		padding: 20px
+	// 		border: 2px solid $blue
+	// 		border-radius: 2px
+	// 		height: 100%
+	// 		overflow: hidden
+	// 		text-align: left
+	// 		display: inline-block
+
+
+// for page index
 .course
 	padding-top: 48px
 	padding-bottom: 80px
 	@extend %in
+	&.course__main
+		max-width: 1150px // its change main container
+		padding-top: 70px
+		padding-bottom: 65px
+		line-height: normal
+		position: relative
 	.course__wrap-backgradient
 		position: relative
 		z-index: 1
@@ -135,14 +126,25 @@
 			border-radius: 2px
 			//height: 245px
 			overflow: hidden
+		&.course__main__wrap-backgradient
+			width: 96%
+			height: 256px
+			margin-left: 20px	
 	.course__desc
 		.course__left-desc
 			height: 188px
 			position: relative
+			text-align: left
 			.course__name
 				h2
 					font-size: 24px
+					
 					//+text-overflow
+					a
+						color: inherit
+						text-decoration: none
+						&:active
+							background: $red
 					+fb
 			.course__data
 				color: $grey
@@ -186,6 +188,7 @@
 				max-height: 160px
 				+text-overflow
 				white-space: normal
+				text-align: left
 			.course__text-more
 				+vertical
 				position: absolute
@@ -248,7 +251,8 @@
 				img
 					width: 38px
 					display: inline-block
-					height: auto
+					height: 38px
+					object-fit: cover
 					+vcenter
 
 				p

@@ -91,10 +91,11 @@ $blue: #096EAF
 $grey-light: #ACACAC
 body
 	+f
-	font-size: 13px
-	line-height: 1.4
+	font-size: 14px
+	line-height: 1.5
 	-webkit-font-smoothing: antialiased
 	background-color: #F8F5F4
+	text-rendering: optimizeLegibility
 	+scroll
 *
 	+box
@@ -102,7 +103,7 @@ h1
 
 // common blocks
 .out
-	height: 100%
+	min-height: 100%
 	max-width: 100%
 	position: relative
 	//overflow-y: auto
@@ -138,8 +139,9 @@ h1
 	width: 100%
 	h2
 		+fb
-		font-size: 24px
+		font-size: 38px
 		text-align: center
+		text-transform: uppercase
 [class$="main-btn"]
 	display: inline-block
 	text-align: center

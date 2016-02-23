@@ -63,6 +63,7 @@
 				width: 100%
 				margin-bottom: 27px
 
+
 		input
 			font-size: 18px
 			padding: 10px 10px 10px 5px
@@ -90,6 +91,8 @@
 				left: -2px
 				font-size: 14px
 				color: $blue
+
+
 		/* Label */
 
 		label
@@ -158,10 +161,15 @@
 			cursor: pointer
 			float: right
 			+tr(all 0.5s)
+			+f
 			&:focus
 				outline: 0
 			&:hover
 				background: $red
+
+
+.inputError input ~ label
+	color: $red !important
 
 .footer
 	height: 55px

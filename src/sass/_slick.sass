@@ -59,7 +59,7 @@
 	img
 		display: block
 		max-width: 100%
-	&.slick-loading img
+	&.slick-loading .course__main__wrap-backgradient
 		display: none
 	display: none
 	&.dragging img
@@ -67,7 +67,7 @@
 	.slick-initialized &
 		display: block
 	.slick-loading &
-		visibility: hidden
+		visibility: hidden 
 	.slick-vertical &
 		display: block
 		height: auto
@@ -108,6 +108,9 @@
 		display: inline-block
 		vertical-align: middle
 		font-size: 20px
+[class$="--helper-button"] .slick-prev
+	left: 10px !important
+	top: 55% !important
 
 
 .slick-next
@@ -120,6 +123,9 @@
 		display: inline-block
 		vertical-align: middle
 		font-size: 20px
+[class$="--helper-button"] .slick-next
+	right: 10px !important
+	top: 55% !important
 
 // .slick-dots
 // 	text-align: center
